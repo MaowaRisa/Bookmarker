@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@200;300;400;600&display=swap");
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.container {
+  background-color: #1a0c3e;
+}
+
+header {
+  width: 100%;
+  background: linear-gradient(rgba(30, 12, 12, 0.5), rgba(97, 39, 39, 0.5)) #1a0c3e;
+}
+header h1 {
+  color: rgb(210, 208, 208);
+  padding: 1rem 0;
+}
+
+.bookmarker {
+  background: linear-gradient(rgba(24, 20, 20, 0.5), rgba(18, 17, 17, 0.5)) #1a0c3e;
+  padding: 1rem 1rem;
+  color: rgb(210, 208, 208);
+}
+.bookmarker .bookmarkForm {
+  display: flex;
+  justify-content: center;
+  line-height: 2.5rem;
+  flex-direction: column;
+}
+.bookmarker .styleBtn {
+  margin-top: 1rem;
+  padding: 0.2rem 2rem;
+  background-color: #7e0101;
+  line-height: 3rem;
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  color: rgb(210, 208, 208);
+  border: none;
+  box-shadow: 0rem 0.8rem 1.5rem rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  outline: none;
+}
+.bookmarker .styleBtn:hover {
+  background-color: rgb(210, 208, 208);
+  box-shadow: 0rem 0.1rem 0.2rem rgba(235, 235, 232, 0.4);
+  color: #1a0c3e;
+  transform: translateY(-0.2rem);
+}
+
+.resultTable {
+  border-collapse: collapse;
+  width: 100%;
+  color: rgb(210, 208, 208);
+}
+.resultTable td, .resultTable th {
+  padding: 1rem;
+}
+.resultTable th {
+  padding: 1rem;
+  text-align: center;
+  background-color: #7e0101;
+  opacity: 0.8;
+}
+.resultTable tr {
+  text-align: center;
+}
+.resultTable tr:nth-child(odd) {
+  background-color: #4b395c;
+}
+.resultTable tr:hover {
+  background-color: rgb(95, 85, 124);
+}/*# sourceMappingURL=style.css.map */

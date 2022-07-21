@@ -1,0 +1,62 @@
+@import '../scss/var';
+@import '../scss/vendor';
+@import '../scss/mixin';
+html{
+    font-size: 62.5%;
+}
+body{
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+}
+.container{
+    background-color: $main_color;
+}
+header{
+    width: 100%;
+    background: linear-gradient(rgba(30, 12, 12, 0.5),rgba(97, 39, 39, 0.5)) $main_color;
+
+    & h1{
+        color: $text_color;
+        padding: 1rem 0;
+    }
+}
+.bookmarker{
+    background: linear-gradient(rgba(24, 20, 20, 0.5),rgba(18, 17, 17, 0.5)) $main_color;
+    padding: 1rem 1rem;
+    color: $text_color;
+
+    & .bookmarkForm{
+        @include content_center();
+    }
+    & .styleBtn{
+        margin-top: 1rem;
+        @include btnStyle;
+        &:hover{
+            @include hovereffects;
+        }
+    }
+}
+.resultTable{
+    border-collapse: collapse;
+    width: 100%;
+    color: $text_color;
+
+    & td, th{ 
+        padding: 1rem;
+    }
+    & th{
+        padding: 1rem;
+        text-align: center;
+        background-color: $primary_color;
+        opacity: 0.8;
+    }
+    & tr{
+        text-align: center;
+    }
+    & tr:nth-child(odd){
+        background-color: #4b395c;
+    }
+    & tr:hover{
+        background-color: rgb(95, 85, 124);
+    }
+}
