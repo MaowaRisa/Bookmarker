@@ -1,26 +1,52 @@
 const bookmarkForm = document.getElementById("bookmarkForm");
 const bookmarkRows = document.querySelectorAll('.b_marks');
 const bookmarkResultsTbl = document.getElementById("bookmarkResults");
+// Site Url properties
+const protocol = document.getElementById("protocol");
+// const domainName = document.getElementById("domainName").value;
+const domainName = document.getElementById("domainName");
+const extension = document.getElementById("extension");
 
-
-bookmarkForm.addEventListener('submit',(e)=>{
-    saveBookmark(e); 
-});
-// localStorage.clear();
 fetchBookmarks();
+bookmarkForm.addEventListener('submit',(e)=>{
+    saveBookmark(e);   
+    e.preventDefault();
+});
+
 function saveBookmark(e){
     //Get Values
-    var siteName = document.getElementById("siteName").value;
-    var siteUrl = document.getElementById("siteUrl").value;
-
+    var siteName = document.getElementById("siteName");
+    // var siteUrl = document.getElementById("siteUrl").value;
+    var siteUrl = setUrl();
+    
+    
     var bookmark = {
-        name: siteName,
+        name: siteName.value,
         url: siteUrl
     }
     
     updateLs(bookmark);
+    siteName.value = '';
+    protocol.checked = true;
+    domainName.value = '';
+    extension.value = '.com';
     // Prevent form from submitting 
     e.preventDefault();
+}
+function setUrl(){
+    var siteUrl = '';
+
+    if(domainName.value.includes("http") || domainName.value.includes("www")){
+        siteUrl = domainName.value;
+    }else{
+        // console.log("false");
+        if(protocol.checked){
+            siteUrl = 'https://www.' + domainName.value + extension.value;
+        }else{
+            siteUrl = 'http://www.' + domainName.value + extension.value;
+        }
+    }
+    return siteUrl;
 }
 
 function updateLs(bookmark){
@@ -31,6 +57,7 @@ function updateLs(bookmark){
         bookmarkList.push(bookmark);
 
         localStorage.setItem('bookmarks', JSON.stringify(bookmarkList));
+
         createRow(bookmark.name, bookmark.url);
     }else{
         bookmarks.push(bookmark);
@@ -38,13 +65,14 @@ function updateLs(bookmark){
         createRow(bookmark.name, bookmark.url);
     }
 
+
 }
 function createRow(name, url){
     var tr = document.createElement("tr");
             
     tr.innerHTML = `
         <td>${name}</td>
-        <td><a class="btn btn-primary" href="${url}">Visit</a></td>
+        <td><a class="btn btn-primary" href="${url}" target="_blank">Visit</a></td>
         <td><a class="btn btn-danger" onclick="deleteBookmark('${url}')">Delete</a></td>
     `
     bookmarkResultsTbl.appendChild(tr);
