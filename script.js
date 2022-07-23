@@ -52,6 +52,8 @@ function setUrl(){
 function updateLs(bookmark){
     // get bookmark from ls
     const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    bookmarkResultsTbl.style.display = '';
+
     if(bookmarks === null){
         var bookmarkList = [];
         bookmarkList.push(bookmark);
@@ -80,6 +82,9 @@ function createRow(name, url){
 // localStorage.clear();
 function fetchBookmarks(){
     const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    if(bookmarks.length == 0){
+        bookmarkResultsTbl.style.display = 'none';
+    }
     if (bookmarks){
         for(let i=0; i < bookmarks.length; i++){
             let name = bookmarks[i].name;
