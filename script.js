@@ -72,7 +72,7 @@ function createRow(name, url){
             
     tr.innerHTML = `
         <td>${name}</td>
-        <td><a class="btn btn-primary" href="${url}" target="_blank">Visit</a></td>
+        <td><a class="btn btn-primary" href="${url}" target="_blank" >Visit</a></td>
         <td><a class="btn btn-danger" onclick="deleteBookmark('${url}')">Delete</a></td>
     `
     bookmarkResultsTbl.appendChild(tr);
