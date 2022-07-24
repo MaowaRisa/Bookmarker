@@ -53,6 +53,13 @@ header h1 {
   color: #1a0c3e;
   transform: translateY(-0.2rem);
 }
+.bookmarker .error {
+  height: 1rem;
+  color: red;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
 
 .resultTable {
   border-collapse: collapse;
@@ -76,4 +83,45 @@ header h1 {
 }
 .resultTable tr:hover {
   background-color: rgb(95, 85, 124);
+}
+
+.modalContainer {
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-open {
+  display: flex;
+}
+.modal-open .confirmModal {
+  color: rgb(210, 208, 208);
+  background: linear-gradient(rgba(30, 12, 12, 0.5), rgba(97, 39, 39, 0.5)) #1a0c3e;
+  line-height: 1rem;
+  padding: 3rem;
+  margin-top: -15%;
+}
+.modal-open .confirmModal .modalContent {
+  margin: 1rem 0rem;
+}
+.modal-open .confirmModal .modalFooter {
+  text-align: right;
+}
+.modal-open .confirmModal .modalFooter .modalBtn {
+  padding: 1rem 2rem;
+  border: none;
+  outline: none;
+  border-radius: 0.2rem;
+  color: rgb(210, 208, 208);
+  background-color: rgb(128, 104, 104);
+}
+.modal-open .confirmModal .modalFooter .modalConfirmBtn {
+  background-color: #dc3545;
 }/*# sourceMappingURL=style.css.map */

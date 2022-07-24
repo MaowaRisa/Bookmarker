@@ -25,6 +25,7 @@
       <div class="p-5 mb-4 rounded-3 bookmarker">
         <div class="container-fluid">
           <h4 class="fw-bold text-center">Bookmark Your Favorite Sites</h4>
+          <span class="error text-center" id="error"></span>
           <form class="bookmarkForm" id="bookmarkForm">
             <div class="form-group">
               <label for="siteName">Site Name</label>
@@ -82,8 +83,10 @@
           <table class="resultTable" id="bookmarkResults">
             <thead>
               <tr>
+                <th scope="col">#</th>
                 <th scope="col">Sitename</th>
-                <th scope="col">Url</th>
+                <th scope="col">Link</th>
+                <th scope="col"></th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -93,6 +96,18 @@
       </div>
 
       <footer class="pt-3 mt-4 text-muted border-top">&copy; 2022</footer>
+    </div>
+    <div id="confirmation" class="modalContainer">
+      <div class="confirmModal">
+        <section id="modalSection">
+          <div class="modalHeader">
+            <h1>Are you sure you want to delete?</h1>
+          </div>
+          <div class="modalContent">
+            After delete it will remove from your list.
+          </div>
+        </section>
+      </div>
     </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
