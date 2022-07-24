@@ -65,28 +65,28 @@ function updateLs(bookmark){
     // get bookmark from ls
     const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
     bookmarkResultsTbl.style.display = '';
-
+    var serial = bookmarks.length;
     if(bookmarks === null){
         var bookmarkList = [];
         bookmarkList.push(bookmark);
 
         localStorage.setItem('bookmarks', JSON.stringify(bookmarkList));
 
-        createRow(bookmark.id, bookmark.name, bookmark.url);
+        createRow(serial, bookmark.id, bookmark.name, bookmark.url);
     }else{
         bookmarks.push(bookmark);
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 
-        createRow(bookmark.id, bookmark.name, bookmark.url);
+        createRow(serial, bookmark.id, bookmark.name, bookmark.url);
     }
 
 
 }
-function createRow(id, name, url){
+function createRow(serial, id, name, url){
     var tr = document.createElement("tr");
-     
+    
     tr.innerHTML = `
-        <td id="bookmark_${id}">${id}</td>
+        <td id="bookmark_${id}">${serial+1}</td>
         <td>${name}</td>
         <td>${url}</td>
         <td style="text-align:left;"><a class="btn btn-info" href="${url}" target="_blank">Visit</a></td>
@@ -108,7 +108,7 @@ function fetchBookmarks(){
             let id = bookmarks[i].id;
             let name = bookmarks[i].name;
             let url = bookmarks[i].url;
-            createRow(id, name, url);
+            createRow(i, id, name, url);
         }
     }
 
